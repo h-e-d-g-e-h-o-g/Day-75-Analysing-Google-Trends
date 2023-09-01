@@ -1,0 +1,45 @@
+"inplace" argument is used in any methods of Series or DataFrame.
+It is used in order to control the changes made by the methods on Series or DataFrame object.
+Whether the method will modify the object or return the new object with the changes applied.
+When "inplace" is set to True, it does not return a new object but make changes in the orginal object.
+But, When "inplace" is set to False, it returns a new object with the changes applied.
+
+Resampling the data
+Resampling means changing the frequency of time series data.
+In context of time-series data, frequency means, the regular interval at which data points are collected or observed.
+We do the resampling through "resample()".
+resample() function takes frequency codes as argument in order to change the frequency.
+"D" for Daily frequency.
+"W" for Weekyly frequency.
+"M" for Monthly(End of the mpnth).
+"Q" for Quaterly(End of the quater).
+"A" for Annualy(End of the year).
+"T" for Minutes frequency.
+syntax:- df.resample('frequency_code', on="column_name")
+The column_name is the column, in which, we need to change the frequency of its values.
+For example, converting Daily data to Monthly data.
+While converting data into Monthly data, we need to decide, how are we going to consider the value that represents
+the Monthly data.
+We can consider the month end value as monthly data or the average value of month.
+For month end value, we can use "last()" method and for average, we can use "mean()" method.
+
+Locator
+We first import "matplotlib.dates", that has the dates plotting capabilites.
+Today, we have used YearLocator() and MonthLocator() classes that will automatically generate tick locations on the x-axis.
+They are specifically used for locating years and months respectively on the x-axis.
+We set "years" as major locator, means major tick.
+"months" as minor locator, means small tick.
+To format date on x-axis, we use DateFormatter() class, we have passed "%Y" to format date as years.
+syntax:- ax1.xaxis.set_major_locator(years)
+ax1.xaxis.set_minor_locator(months)
+ax1.xaxis.set_major_formatter(date_format)
+
+"dpi" argument used in figure(), in order to set the dotes per inch(DPI) for the chart that is going to be displayed.
+A higher dpi value ensures the high quality and detailed image.
+dpi argument can affect the size and quality of image.
+NOTE:- Resolution means the level of detail, an image, display or output device represents.
+It measures how finally, an image is rendered.
+
+grid() method is used to activate grid lines on and off on the axes of a plot.
+Grid lines are horizontal and vertical lines that span on the plotting area and intersect at major tick locations
+on the axes.
